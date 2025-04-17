@@ -65,6 +65,10 @@ public class StatsValuesFactory {
 
     if (null == sf) {
       // function stats
+      var vs = statsField.getValueSource();
+      if (vs.toString().contains("chooseStringStats")) {
+        return new StringStatsValues(statsField);
+      }
       return new NumericStatsValues(statsField);
     }
 
